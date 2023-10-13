@@ -2,5 +2,5 @@ appName: 'foo'
 
 processes:
   web:
-    command: ["./bin/web"]
+    replicas: 2
 
