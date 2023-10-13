@@ -1,0 +1,26 @@
+{{- $rootValues := .Values -}}
+{{- range $processName, $process := $rootValues.processes }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ printf "%s-%s" $rootValues.appName $processName }}
+spec:
+  replicas: {{ default 1 $process.replicas }}
+  selector:
+    matchLabels:
+      app: {{ printf "%s-%s" $rootValues.appName $processName }}
+  template:
+    metadata:
+      labels:
+        app: {{ printf "%s-%s" $rootValues.appName $processName }}
+    spec:
+      containers:
+        - name: {{ $processName }}
+          image: "registry/{{ $rootValues.appName }}:latest"
+          command: {{ $process.command }}
+          resources:
+            limits:
+              memory: {{ default "1000M" $process.memory }}
+              cpu: {{ default "250m" $process.cpu }}
+---
+{{- end }}

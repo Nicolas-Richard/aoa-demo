@@ -1,0 +1,6 @@
+appName: 'foo'
+
+processes:
+  web:
+    command: ["./bin/web"]
+

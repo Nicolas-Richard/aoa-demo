@@ -1,0 +1,5 @@
+appName: 'baz'
+
+processes:
+  web:
+    command: ["./bin/web"]

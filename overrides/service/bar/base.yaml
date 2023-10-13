@@ -1,0 +1,13 @@
+appName: 'bar'
+
+processes:
+  web:
+    command: ["./bin/web"]
+    replicas: 2
+    memory: "2000M"
+    cpu: 100m
+  worker:
+    command: ["./bin/background-worker"]
+    replicas: 1
+    memory: "2000M"
+    cpu: 100m
