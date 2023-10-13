@@ -7,7 +7,7 @@ metadata:
   name: {{ .root.env }}-service-{{ $appName }}
 spec:
   destination:
-    namespace: demo
+    namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:

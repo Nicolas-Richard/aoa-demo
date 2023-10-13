@@ -6,7 +6,7 @@ metadata:
   name: {{ .child }}
 spec:
   destination:
-    namespace: demo
+    namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
