@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ $processName }}
-          image: "registry/{{ $rootValues.appName }}:latest"
+          image: "gcr.io/heptio-images/ks-guestbook-demo:latest"
           command: {{ $process.command }}
           resources:
             limits:
