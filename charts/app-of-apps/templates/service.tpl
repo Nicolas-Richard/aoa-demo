@@ -11,6 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
+    repoURL: https://github.com/Nicolas-Richard/aoa-demo.git
     path: charts/service
     helm:
       version: v3
