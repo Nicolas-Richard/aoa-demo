@@ -1,16 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-guestbook
+  name: test-cluster
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: helm-guestbook
-    server: {{ .Values.spec.destination.server }}
+    namespace: argocd
+    server: https://kubernetes.default.svc
   project: default
   source:
-    path: helm-guestbook
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      parameters:
+        - name: region
+          value: us-east-1
+        - name: renderBaseDir
+          value: /zz.auto-generated/root
+      valueFiles:
+        - ../../overrides/bootstrap/test-cluster.yaml
+    path: charts/app-of-apps
+    repoURL: https://github.com/Nicolas-Richard/aoa-demo
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
