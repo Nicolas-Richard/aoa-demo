@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL: https://github.com/Nicolas-Richard/aoa-demo.git
     targetRevision: HEAD
 
     path: charts/app-of-apps
