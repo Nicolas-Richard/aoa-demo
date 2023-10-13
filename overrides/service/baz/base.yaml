@@ -2,4 +2,4 @@ appName: 'baz'
 
 processes:
   web:
-    command: ["./bin/web"]
+    replicas: 1
