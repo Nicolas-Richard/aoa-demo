@@ -4,10 +4,10 @@ processes:
   web:
     command: ["./bin/web"]
     replicas: 2
-    memory: "2000M"
+    memory: "200Mi"
     cpu: 100m
   worker:
     command: ["./bin/background-worker"]
     replicas: 1
-    memory: "2000M"
+    memory: "200Mi"
     cpu: 100m

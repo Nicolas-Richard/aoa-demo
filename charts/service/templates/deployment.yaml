@@ -20,7 +20,7 @@ spec:
           command: {{ $process.command }}
           resources:
             limits:
-              memory: {{ default "1000M" $process.memory }}
-              cpu: {{ default "250m" $process.cpu }}
+              memory: {{ default "32Mi" $process.memory }}
+              cpu: {{ default "10m" $process.cpu }}
 ---
 {{- end }}
